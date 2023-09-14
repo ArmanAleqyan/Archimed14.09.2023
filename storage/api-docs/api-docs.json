@@ -1,0 +1,2545 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "https://archimed.justcode.am/",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/get_about_analise_info": {
+            "get": {
+                "tags": [
+                    "AboutAnalise"
+                ],
+                "summary": "get_about_analise_info",
+                "description": "Получение текста под цветком анализов",
+                "operationId": "get_about_analise_info",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение текста под цветком анализов",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_ApplicationUse": {
+            "get": {
+                "tags": [
+                    "About_application"
+                ],
+                "summary": "get_ApplicationUse",
+                "description": "Правила пользования приложением",
+                "operationId": "get_ApplicationUse",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Правила пользования приложением",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_PrivacyPolicy": {
+            "get": {
+                "tags": [
+                    "About_application"
+                ],
+                "summary": "get_PrivacyPolicy",
+                "description": "Политика конфиденциальности",
+                "operationId": "get_PrivacyPolicy",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Политика конфиденциальности",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_TermsOfService": {
+            "get": {
+                "tags": [
+                    "About_application"
+                ],
+                "summary": "get_TermsOfService",
+                "description": "Условия предоставления услуг",
+                "operationId": "get_TermsOfService",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Условия предоставления услуг",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_analise_and_service": {
+            "get": {
+                "tags": [
+                    "Analise and service"
+                ],
+                "summary": "get_basket",
+                "description": "Получение данных из цветка анализов",
+                "operationId": "get_analise_and_service",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение данных из цветка анализов",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/RegisterFromApple": {
+            "post": {
+                "tags": [
+                    "RegisterApple"
+                ],
+                "summary": "RegisterFromApple",
+                "description": "Сначала отправлаем apple_id и email На втором этапе отправлаем остольное",
+                "operationId": "Register Apple",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7(999)999-99-99"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Aleqyan"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Arman"
+                                    },
+                                    "middleName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Alberti"
+                                    },
+                                    "birthDate": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "19970915"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "M OR F"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "appleemail@mail.ru"
+                                    },
+                                    "apple_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "apple_id"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "This Apple Id Exist",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/LoginFromApple": {
+            "post": {
+                "tags": [
+                    "RegisterApple"
+                ],
+                "summary": "LoginFromApple",
+                "description": "отправлаем apple_id и email",
+                "operationId": "LoginFromApple",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "appleemail@mail.ru"
+                                    },
+                                    "apple_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "apple_id"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Вы успешно  вошли в свой  акаунт",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Wrong Apple Id",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/add_service_in_basket": {
+            "post": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "add_service_in_basket",
+                "description": "Отправлаем услугу в корзину  ОТПРАВЛАЕМ TOKEN",
+                "operationId": "add_service_in_basket",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "parent_type": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "doctor_service OR ... medical_test ... medical_test_parameter ... obs ... obs_service ... home_services"
+                                    },
+                                    "PL_EXAM_ID": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "if doctor_service  send PL_EXAM_ID"
+                                    },
+                                    "parent_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "data.doctor_service.id OR medical_test.id OR medical_test_parameter.id"
+                                    },
+                                    "start_time": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "t1"
+                                    },
+                                    "end_time": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "t2"
+                                    },
+                                    "day": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "day"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Added in Basket",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "You have this service in basket",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_basket": {
+            "get": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "get_basket",
+                "description": "Получаем список моей корзини если нужен один экзепляр отправлаем  /api/get_basket/2 ОТПРАВЛАЕМ TOKEN",
+                "operationId": "get_basket",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Basket data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/my_basket_record": {
+            "get": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "my_basket_record",
+                "description": "Получение списка записей поциента",
+                "operationId": "my_basket_record",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение списка записей поциента",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/my_basket_record_limit3": {
+            "get": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "my_basket_record_limit3",
+                "description": "Получение списка записей поциента лимит 3",
+                "operationId": "my_basket_record_limit3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение списка записей поциента лимит 3",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/delete_my_all_basket": {
+            "post": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "Delete user's baskets",
+                "description": "Delete all baskets belonging to the authenticated user send basket_id from delete single basket",
+                "operationId": "deleteMyAllBasket",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Basket Deleted"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/get_clinics": {
+            "get": {
+                "tags": [
+                    "Clinic"
+                ],
+                "summary": "",
+                "description": "get clinics",
+                "operationId": "get_clinics",
+                "requestBody": {
+                    "description": "get clinics",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "get clinics",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "get clinics",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_clinics_by_id": {
+            "post": {
+                "tags": [
+                    "Clinic"
+                ],
+                "summary": "",
+                "description": "get clinics by id",
+                "operationId": "get_clinics_by_id",
+                "requestBody": {
+                    "description": "get clinics by id",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "clinic_id"
+                                ],
+                                "properties": {
+                                    "clinic_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "12"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "get clinics by id",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "get clinics by id",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_Moscow_clinic_phone": {
+            "get": {
+                "tags": [
+                    "Clinic"
+                ],
+                "summary": "",
+                "description": "Получение телефона клиники в Москве",
+                "operationId": "get_Moscow_clinic_phone",
+                "requestBody": {
+                    "description": "get clinics",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение телефона клиники в Москве",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "get clinics",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/setDeparture": {
+            "post": {
+                "tags": [
+                    "Departure"
+                ],
+                "summary": "",
+                "description": "set departure",
+                "operationId": "setDeparture",
+                "requestBody": {
+                    "description": "Add review to services by order",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "address",
+                                    "description",
+                                    "poligone"
+                                ],
+                                "properties": {
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Abovyan 2"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "nkaragrutyun"
+                                    },
+                                    "poligone": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "msk"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_free_time_for_services": {
+            "post": {
+                "tags": [
+                    "Departure"
+                ],
+                "summary": "",
+                "description": "get free time for services",
+                "operationId": "get_free_time_for_services",
+                "requestBody": {
+                    "description": "get free time for services",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "date_start",
+                                    "date_end",
+                                    "serv_code"
+                                ],
+                                "properties": {
+                                    "date_start": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "2023-07-24 16:30:00.000"
+                                    },
+                                    "date_end": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2023-07-26 16:30:00.000"
+                                    },
+                                    "serv_code": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "М001К449"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_home_service": {
+            "post": {
+                "tags": [
+                    "Departure"
+                ],
+                "summary": "",
+                "description": "Получение home_service",
+                "operationId": "get_home_service",
+                "requestBody": {
+                    "description": "Получение home_service",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "get_home_service",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "get_home_service",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_directions": {
+            "post": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "",
+                "description": "get directions",
+                "operationId": "get_directions",
+                "requestBody": {
+                    "description": "get directions",
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "get directions",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "get directions",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/doctors_list": {
+            "post": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "doctors_list",
+                "description": "Получаем Список врачей",
+                "operationId": "doctors_list",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "city": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Москва"
+                                    },
+                                    "orderby": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Doctors Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/single_doctor": {
+            "post": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "single_doctor",
+                "description": "Получаем Одного врача",
+                "operationId": "single_doctor",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "doctor_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Doctor Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/doctor_visit_time": {
+            "post": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "doctor_visit_time",
+                "description": "Получаем Список свободных часов Одного доктора для конкретной даты",
+                "operationId": "doctor_visit_time",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "subject_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    },
+                                    "PL_EXAM_ID": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    },
+                                    "start_date": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2023-05-18"
+                                    },
+                                    "end_date": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "2023-05-18"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Visit Time Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Wrong Data sended subject_id and PL_EXAM_ID no exist",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_global_search": {
+            "post": {
+                "tags": [
+                    "GlobalSearch"
+                ],
+                "summary": "get_global_search",
+                "description": "Глобальный поиск",
+                "operationId": "get_global_search",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "search_type": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "all/news/basket/direction/naznacheniya/analise/homeServices/doctorService/doctor"
+                                    },
+                                    "searchText": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Екатерина/крови"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Глобальный поиск",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/LoginForPhone": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "LoginForPhone",
+                "description": " Отправлает  код потвердения  на номер телефона   отправить  код  повторна  работает та же функцыя",
+                "operationId": "Login For Phone",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+37493073584"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": " User Login  For Phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/confirmPhoneLoginCode": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "confirmPhoneLoginCode",
+                "description": " Отправлаете Код потверждения и омер телефонна  каторый  пользватель ввёл  во время входа",
+                "operationId": "confirmPhoneLoginCode",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+37493073584"
+                                    },
+                                    "phone_code": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": " User Login  For Phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Logout": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Logout",
+                "description": " User Logout",
+                "operationId": "Auth User Logout",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": " User Logout",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/Feedback": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "Feedback",
+                "description": " User Create Feedback",
+                "operationId": "Feedback",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Arman"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "arman-aleqyan@mail.ru"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Long Text"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": " User Login  For Phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/medical_test": {
+            "post": {
+                "tags": [
+                    "MedicalTest"
+                ],
+                "summary": "medical_test",
+                "description": "Получаем Список Комплексов анализа",
+                "operationId": "MedicalTest",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "search"
+                                    },
+                                    "complex": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "true"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Test Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/medical_test_params": {
+            "post": {
+                "tags": [
+                    "MedicalTest"
+                ],
+                "summary": "medical_test_params",
+                "description": "Получаем Список Анализов  конкретного комплекса",
+                "operationId": "medical_test_params",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "search"
+                                    },
+                                    "test_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "39"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Test Analize Data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/medical_test_params_single_page": {
+            "post": {
+                "tags": [
+                    "MedicalTest"
+                ],
+                "summary": "Get medical test parameters for a single page",
+                "operationId": "4ddf6e2d52e11995633de80381730e38",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "test_id": {
+                                        "type": "integer",
+                                        "example": 1
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "422": {
+                        "description": "Wrong test_id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Wrong test_id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "properties": {
+                                                "id": {
+                                                    "type": "integer"
+                                                },
+                                                "LABEL": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_my_naznachenia": {
+            "get": {
+                "tags": [
+                    "Naznachenia"
+                ],
+                "summary": "Get My Naznachenia",
+                "operationId": "b0c977d81f0e4b18a74d54a7ffc67b1f",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "data"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/user_add_naznachenia": {
+            "post": {
+                "tags": [
+                    "Naznachenia"
+                ],
+                "summary": "Add Naznachenia",
+                "operationId": "965d80bd4fd5f427b168ed825ec53a24",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "nazvaniya_lekarstva": {
+                                        "type": "string"
+                                    },
+                                    "vremya_priyoma_preporata": {
+                                        "type": "string"
+                                    },
+                                    "data_nachala": {
+                                        "type": "string"
+                                    },
+                                    "data_zaversheniya": {
+                                        "type": "string"
+                                    },
+                                    "dozirovka": {
+                                        "type": "string"
+                                    },
+                                    "pereodichnosty": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_user_adds_naznachenia": {
+            "get": {
+                "tags": [
+                    "Naznachenia"
+                ],
+                "summary": "Get User Adds Naznachenia",
+                "operationId": "10da8098a58ad0e87b772a20bc6ffd13",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "data"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/delete_naznacheniya": {
+            "post": {
+                "tags": [
+                    "Naznachenia"
+                ],
+                "summary": "DELETE Naznachenia",
+                "operationId": "81d9f337effb3ef60b9c6a3a0281c022",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "naznachenya_id": {
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "message": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/NewsAndSales": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "NewsAndSales",
+                "description": "Возращает Новости т акцые  различаютса по column Type",
+                "operationId": "NewsAndSales",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/InfoArchimedMedical": {
+            "get": {
+                "tags": [
+                    "InfoMedical"
+                ],
+                "summary": "InfoArchimedMedical",
+                "description": "Возращает Информацыю о клиники  ест главные и просто информацыя на главную ставите ",
+                "operationId": "InfoArchimedMedical",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_news": {
+            "get": {
+                "tags": [
+                    "News"
+                ],
+                "summary": "Get News",
+                "operationId": "d062780078c08946d8d516320b885ddb",
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "data"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_obs": {
+            "post": {
+                "tags": [
+                    "Observation"
+                ],
+                "summary": "Get observations",
+                "operationId": "getObs",
+                "parameters": [
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "#/components/schemas/ObsClinic"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_obs_service": {
+            "post": {
+                "tags": [
+                    "Observation"
+                ],
+                "summary": "Get observation services",
+                "operationId": "getObsService",
+                "parameters": [
+                    {
+                        "name": "obs_id",
+                        "in": "query",
+                        "description": "Observation ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "search",
+                        "in": "query",
+                        "description": "Search value",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/add_new_order": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Add a new order (online or offline)",
+                "operationId": "b1c6ce63a2570e1d49d7047e7efcb95a",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "pay_type"
+                                ],
+                                "properties": {
+                                    "pay_type": {
+                                        "description": "Payment type (online or offline)",
+                                        "type": "string",
+                                        "enum": [
+                                            "online Or offline"
+                                        ]
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/order_payment_successfully": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Process successful order payment",
+                "operationId": "orderPaymentSuccessfully",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "order_id": {
+                                        "type": "string",
+                                        "example": "ABC123"
+                                    },
+                                    "basket_id": {
+                                        "type": "string",
+                                        "example": "DEF456"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Order created successfully",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Order Created"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error or wrong order_id/basket_id",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": false
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Validation error or wrong order_id/basket_id"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/update_basket_device": {
+            "post": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "Update basket device",
+                "operationId": "1f9ab62c7b4fc9c75fd2db925b407a1e",
+                "parameters": [
+                    {
+                        "name": "basket_id",
+                        "in": "query",
+                        "description": "Basket ID",
+                        "required": true,
+                        "schema": {
+                            "type": "integer"
+                        }
+                    },
+                    {
+                        "name": "day",
+                        "in": "query",
+                        "description": "Day",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "start_day",
+                        "in": "query",
+                        "description": "Start day",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "end_day",
+                        "in": "query",
+                        "description": "End day",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": " "
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/get_my_all_orders": {
+            "post": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "Get all orders for the current user",
+                "operationId": "0be5f57d4ac12a9b90e20cdf448e6a64",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Page number for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    },
+                    {
+                        "name": "per_page",
+                        "in": "query",
+                        "description": "Number of items per page for pagination",
+                        "required": false,
+                        "schema": {
+                            "type": "integer",
+                            "format": "int32"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Successful operation"
+                    },
+                    "422": {
+                        "description": "Unprocessable entity"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/get_auth_user_order": {
+            "get": {
+                "tags": [
+                    "Orders"
+                ],
+                "summary": "get auth user orders",
+                "description": "get_auth_user_order",
+                "operationId": "get_auth_user_order",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Basket data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_question": {
+            "get": {
+                "tags": [
+                    "Question"
+                ],
+                "summary": "get_question",
+                "description": "Вапрос и ответ",
+                "operationId": "get_question",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Вапрос и ответ",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/add_review": {
+            "post": {
+                "tags": [
+                    "OrderReview"
+                ],
+                "summary": "",
+                "description": "Add review to services by order",
+                "operationId": "Add_review_to_services_by_order",
+                "requestBody": {
+                    "description": "Add review to services by order",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "doctor_services_id",
+                                    "description",
+                                    "grade",
+                                    "order_id",
+                                    "user_id"
+                                ],
+                                "properties": {
+                                    "doctor_services_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "12"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "good"
+                                    },
+                                    "grade": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "5"
+                                    },
+                                    "order_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "12"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/search": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "SearchText",
+                "description": "после окончание ввода поля поиска отправляем данные на этот API",
+                "operationId": "SearchText",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Search Result"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Create Search Result",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/CreateAnalisePage": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "CreateAnalisePage",
+                "description": "При открытие страницы анализа отправляем имя анализа",
+                "operationId": "CreateAnalisePage",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Analize Name"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Analise Text Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/CreateCategoryPage": {
+            "post": {
+                "tags": [
+                    "Search"
+                ],
+                "summary": "CreateCategoryPage",
+                "description": "При открытие страницы анализа отправляем имя анализа",
+                "operationId": "CreateCategoryPage",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "text": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Category"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Category Text Created",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/StartInfo": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "StartInfo",
+                "description": " ",
+                "operationId": "StartInfo",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Возвращает текст первых 4 х страниц",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_analis": {
+            "get": {
+                "tags": [
+                    "TestResult"
+                ],
+                "summary": "get_analis",
+                "description": "get_analis",
+                "operationId": "get_analis",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Basket data",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_analis_limit3": {
+            "get": {
+                "tags": [
+                    "TestResult"
+                ],
+                "summary": "get_analis_limit3",
+                "description": "Анализы и обследования лимит 3",
+                "operationId": "get_analis_limit3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Анализы и обследования лимит 3",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_test_result": {
+            "post": {
+                "tags": [
+                    "TestResult"
+                ],
+                "summary": "",
+                "description": "get_test_result",
+                "operationId": "get_test_result",
+                "requestBody": {
+                    "description": "get_test_result",
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "order_id",
+                                    "service_id",
+                                    "patdirec_id"
+                                ],
+                                "properties": {
+                                    "order_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "123"
+                                    },
+                                    "service_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1d23"
+                                    },
+                                    "patdirec_id": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "123"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "402": {
+                        "description": "Add product to bascet",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "server error",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/auth_user_info": {
+            "get": {
+                "tags": [
+                    "MyCabinet"
+                ],
+                "summary": "Get authenticated user information",
+                "description": "Returns information about the authenticated user.",
+                "operationId": "authUserInfo",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean"
+                                        },
+                                        "data": {
+                                            "$ref": "user_data"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearer_token": []
+                    }
+                ]
+            }
+        },
+        "/api/update_user_info": {
+            "post": {
+                "tags": [
+                    "MyCabinet"
+                ],
+                "summary": "Update user information",
+                "operationId": "cac523724b38999d38469853e0c148ff",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "GRAGDANSTVO": {
+                                        "type": "string",
+                                        "maxLength": 254,
+                                        "nullable": true
+                                    },
+                                    "FACT_ADRES": {
+                                        "type": "string",
+                                        "maxLength": 254,
+                                        "nullable": true
+                                    },
+                                    "JOB": {
+                                        "type": "string",
+                                        "maxLength": 254,
+                                        "nullable": true
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User information updated",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "message": {
+                                            "type": "string",
+                                            "example": "updated"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "Invalid data"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/api/my_direction": {
+            "post": {
+                "tags": [
+                    "Direction"
+                ],
+                "summary": "Get user directions",
+                "description": "Retrieve user directions based on search criteria",
+                "operationId": "myDirection",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "search": {
+                                        "description": "Search term",
+                                        "type": "string"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "data": {
+                                            "type": "array",
+                                            "items": {
+                                                "$ref": "direction data"
+                                            }
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+        "/api/doctorsList": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "DoctorsListc",
+                "description": "Возвращает все данные для Листа  докторов    ",
+                "operationId": "DoctorsListc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "filtr": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "true"
+                                    },
+                                    "city": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Москва"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "DoctorsListc",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/SinglePageDoctor/doctor_id=124567": {
+            "get": {
+                "tags": [
+                    "Doctors"
+                ],
+                "summary": "SinglePageDoctor",
+                "description": "Возвращает все данные Одного  доктора    ",
+                "operationId": "SinglePageDoctor",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "DoctorsListc",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "ObsClinic": {
+                "title": "Observation Clinic",
+                "description": "Schema for Observation Clinic",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "NAME": {
+                        "type": "string",
+                        "example": "OBS Name"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    }
+}

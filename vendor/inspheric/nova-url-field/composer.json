@@ -1,0 +1,32 @@
+{
+    "name": "inspheric/nova-url-field",
+    "description": "A Laravel Nova URL field.",
+    "keywords": [
+        "laravel",
+        "nova",
+        "field",
+        "url"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^8.0",
+        "laravel/nova": "^4.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Inspheric\\Fields\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Inspheric\\Fields\\UrlFieldServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
