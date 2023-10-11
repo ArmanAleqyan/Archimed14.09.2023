@@ -87,6 +87,8 @@ class MedicalTestController extends Controller
 
      $get  =    MedicalTestParametr::query();
      $get_tests =  MedicalTest::where('id', $request->test_id)->first();
+
+
         if (isset($request->search)){
             $name_parts = explode(' ', $request->search);
             foreach ($name_parts as $part){
@@ -105,6 +107,8 @@ class MedicalTestController extends Controller
             'analise_name' => $get_tests->NAME
         ]);
         $get =   $get->where('test_id', $request->test_id)->simplepaginate(15);
+
+
         return response()->json([
             'status' => true,
             'data' => $get,

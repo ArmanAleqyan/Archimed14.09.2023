@@ -44,7 +44,6 @@ class DirectionsController extends Controller
     public function get_directions(Request $request){
         $user_id = auth()->user()->id;
         $patients_id =  Basket::select('client_id')->where('user_id',$user_id)->first();
-        //return $patients_id->client;
 
         $result = Http::withHeaders([
             'Content-Type' => 'application/json',

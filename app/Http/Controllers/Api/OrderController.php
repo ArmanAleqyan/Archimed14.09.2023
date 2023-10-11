@@ -140,28 +140,32 @@ class OrderController extends Controller
               $basket->update([
                  'status' => 2,
                  'order_id' => $time,
-
                   'pay_type' => $request->pay_type
               ]);
+
           $price += $basket['parent']['PRICE']??$basket['parent']['price']??$basket['parent']['priceAmount'];
+
             $get_from_create = $basket->parent_type::where('id',$basket->parent_id)->first();
-              $service_data_from_create[] =[
-                  'type_service' => 'PATDIREC',
-                  'id_service' => $get_from_create->CODE,
-                  'name_service' => $get_from_create->LABEL,
-                  'cost_service' => $get_from_create->price,
-                  'PL_EXAM_ID' => $basket->PL_EXAM_ID,
-              ];
+
+            if ($basket['parent_type'] != 'App\Models\DoctorService'){
+                $service_data_from_create[] =[
+                    'type_service' => 'PATDIREC',
+                    'id_service' => $get_from_create->CODE,
+                    'name_service' => $get_from_create->LABEL,
+                    'cost_service' => $get_from_create->price,
+                    'PL_EXAM_ID' => $basket->PL_EXAM_ID,
+                ];
+            };
+
               if ($doctor_data_from_create != []){
                   $data = [
                       'Order' => [
-                          'filial_id' => auth()->user()->filial_id,
+                          'filial_id' => auth()->user()->filial_id??1,
                           'patients_id' => auth()->user()->client_id,
                           'payment' => $request->pay_type,
                           'services' => [
                               $service_data_from_create
                           ],
-
                           'doctors' =>
                               $doctor_data_from_create
                       ]
@@ -169,7 +173,7 @@ class OrderController extends Controller
               }else{
                   $data = [
                       'Order' => [
-                          'filial_id' => auth()->user()->filial_id,
+                          'filial_id' => auth()->user()->filial_id??1,
                           'patients_id' => auth()->user()->client_id,
                           'payment' => $request->pay_type,
                           'services' =>
@@ -178,6 +182,11 @@ class OrderController extends Controller
                       ]
                   ];
               }
+//              $basket->update([
+//                  'status' => 2,
+//                  'order_id' => $time,
+//                  'pay_type' => $request->pay_type
+//              ]);
 
           }
 
@@ -188,8 +197,11 @@ class OrderController extends Controller
              $data
             );
 
+
         $response = json_decode($create_order->getBody()->getContents(), true);
         $order_id = $response['result'][0]['order_id'];
+
+
 
             Basket::where('order_id', $time)->update([
                 'client_order_id' => $order_id
@@ -484,7 +496,7 @@ class OrderController extends Controller
      */
 
      public function get_my_all_orders(){
-         $get = Basket::where('status', '!=',1)->where('user_id', auth()->user()->id)->with('basketable')->simplepaginate(15);
+         $get = Basket::where('status', '!=',1)->where('user_id', auth()->user()->id)->with('parent')->simplepaginate(15);
 
          foreach ($get as $history){
              if ($history->pay_type == 'offline'){

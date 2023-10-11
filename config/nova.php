@@ -20,7 +20,7 @@ return [
     |
     */
 
-    'license_key' => env('NOVA_LICENSE_KEY'),
+    'license_key' => env('NOVA_LICENSE_KEY','1CL0F0U7bXraaGOtP0Phri1jXVw1F29EiixCsjJLxyxAtOOcKc'),
 
     /*
     |--------------------------------------------------------------------------

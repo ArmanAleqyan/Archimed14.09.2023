@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
-
+use App\Models\MedicalTestParametr;
 class AnaliseAndServices extends Controller
 {
     /**
@@ -29,10 +29,11 @@ class AnaliseAndServices extends Controller
      * )
      */
     public function get_analise_and_service(){
+        $client_token = env('token');
 
         $result = Http::withHeaders([
             'Content-Type' => 'application/json',
-            'Authorization' => "Basic EsjUXa4FFU-PqDSmD7S5lw",
+            'Authorization' => "Basic $client_token",
         ])->timeout(5000000)->post(env('PAM_URL').'VIEW_LK_SERV',
             [
 
@@ -41,13 +42,15 @@ class AnaliseAndServices extends Controller
         $collection = collect($result['result']);
         $firstTen = $collection->take(10);
 
+
+
+        $get = MedicalTestParametr::wherein('CODE', $firstTen->pluck('CODE'))->get();
+
         return response()->json([
             'status'=>true,
-            'data'=>$firstTen
+            'data'=>$get
         ],200);
     }
 
-    public function get_analise_and_service_singl(){
 
-    }
 }

@@ -53,7 +53,6 @@ class DepartureController extends Controller
 
         $address = $request->address;
         $description = $request->description;
-        //$user_id = $request->user_id;
         $poligone = $request->poligone;
 
         $result = HomeService::where('REGION',$poligone)->first();

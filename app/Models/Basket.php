@@ -16,6 +16,10 @@ class Basket extends Model
     {
         return $this->morphTo();
     }
+    public function basketable()
+    {
+        return $this->morphTo();
+    }
 
     public function get_analis_by_medical_test_parametr()
     {
@@ -34,9 +38,9 @@ class Basket extends Model
         return $this->hasMany(MedicalTestParametr::class,'id','parent_id');
     }
 
-//    public function get_services(){
-//        return $this->morphToMany();
-//    }
+    public function get_services(){
+        return $this->morphToMany();
+    }
 
 
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
 use App\Models\UserDirection as UserDirectionModel;
@@ -59,6 +60,8 @@ class UserDirection extends Controller
             ])->json();
 
 
+
+
         $get_my_table_direction = UserDirectionModel::where('PATIENTS_ID', auth()->user()->client_id)->count();
                 if (count($get_my_direction['result'] ) != $get_my_table_direction){
                     foreach ($get_my_direction['result']  as $item) {
@@ -68,6 +71,7 @@ class UserDirection extends Controller
                             'PATIENTS_ID' => $item['PATIENTS_ID'],
 
                         ],[
+
                             'PATDIREC_ID' => $item['PATDIREC_ID']??null,
                             'DATE_PATDIR' => $item['DATE_PATDIR']??null,
                             'NAME' => $item['NAME']??null,
@@ -95,7 +99,12 @@ class UserDirection extends Controller
                             });
                         }
                     }
-              $gets =    $get->where('PATIENTS_ID', auth()->user()->client_id)->simplepaginate(15);
+              $gets =    $get->where('PATIENTS_ID', auth()->user()->client_id)
+                  ->where('DATE_ACTUAL', '>=', Carbon::now())
+                  ->simplepaginate(15);
+
+
+
                 return response()->json([
                    'status' => true,
                    'data' => $gets

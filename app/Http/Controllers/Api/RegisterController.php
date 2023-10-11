@@ -29,6 +29,30 @@ class RegisterController extends Controller
 {
 
 
+    public function validation_register(Request $request){
+
+        $rules=array(
+            'phone' => [
+                'required',
+                Rule::unique((new User)->getTable())->where(function ($query) {
+                    $query->where('phone_veryfi_code', 1);
+                }),
+            ],
+        );
+        $validator=Validator::make($request->all(),$rules);
+        if($validator->fails())
+        {
+            return \response()->json([
+                'status' => false
+            ],401);
+        }else{
+            return \response()->json([
+               'status' => true
+            ],200);
+        }
+
+    }
+
     /**
      * @OA\Post(
      * path="/api/register",
@@ -104,7 +128,7 @@ class RegisterController extends Controller
         $firstName = $request->firstName??"default";
         $middleName = $request->middleName??"default";
         $gender = $request->gender??"default";
-        $birthDate = $request->birthDate??"2000-01-01";
+        $birthDate =  Carbon::parse($request->birthDate)->format('Y-m-d')??"2000-01-01";
 
                 User::updateOrcreate(['phone' =>  $request->phone],[
                     'phone' =>  $request->phone,
@@ -117,7 +141,7 @@ class RegisterController extends Controller
                     "gender" => $gender,
                     "birthDate" => $birthDate,
                     "role_id" => 3,
-                    'email'  => $request->gmail
+                    'email'  => $request->mail
                 ]);
 
                 return response()->json([
@@ -181,27 +205,18 @@ class RegisterController extends Controller
             ],
             'json' => [
                 'TEL' => $get_user->phone,
-                'NOM' => $get_user->lastName,
-                'PRENOM' => $get_user->firstName,
-                'PATRONYME' => $get_user->middleName,
+                'NOM' => $get_user->middleName,
+                'PRENOM' => $get_user->lastName,
+                'PATRONYME' => $get_user->firstName ,
                 'NE_LE' => $get_user->birthDate,
-//                'EMAIL' => 'exempl@mail.ru',
                 'POL' =>  $get_user->gender,
                 'Citizenship' => 'RUS',
-//                'SNILS' => '119-541-213 13',
-//                'DATE_SIGN' => '2023-01-24T23:55:01Z',
-//                'IP_ADRESS' => '2.92.192.239',
-//                'departmentDoc' => 'Главное управление по вопросам миграции МВД России',
-//                'series' => '4500',
-//                'number' => '123456',
-//                'issueId' => '772060',
-//                'issuedBy' => 'ОВД РАЙОНА ЮЖНОЕ МЕДВЕДКОВО ГОРОДА МОСКВЫ',
-//                'issueDate' => '2002-11-22',
-//                'type' => 'RF_PASSPORT',
             ],
         ]);
-     
+
         $patientsId = Arr::get(json_decode($response->getBody(), true), 'result.0.PATIENTS_ID');
+
+        
 
                 Auth::login($get_user);
                 $token = $get_user->createToken('Laravel Password Grant Client')->accessToken;
@@ -318,30 +333,7 @@ class RegisterController extends Controller
 
     }
 
-    /**
-     * @OA\Post(
-     * path="/api/GeoAccess",
-     * summary="GeoAccess",
-     * description=" Разрешить приложению «АрхиМед» доступ к Вашей Геопозиции?
-     * 1 = При использовании приложения  , 2 = Однократно, 3 = Не разрешать ",
-     * operationId="GeoAccess",
-     * tags={"Auth"},
-     * @OA\RequestBody(
-     *    required=true,0.
-     *    @OA\JsonContent(
-     *       @OA\Property(property="geo_access", type="string", format="text", example="1 OR 2 OR 3"),
-     *
-     *    ),
-     * ),
-     * @OA\Response(
-     *    response=200,
-     *    description=" 1 = При использовании приложения  , 2 = Однократно, 3 = Не разрешать ",
-     *    @OA\JsonContent(
 
-     *        )
-     *     )
-     * )
-     */
 
     public function GeoAccess(Request $request){
         $rules=array(
@@ -453,6 +445,7 @@ class RegisterController extends Controller
 
         User::where('id', auth()->guard('api')->user()->id)->update([
            'city_id' => $request->city_id,
+           'filial_id' => $get_city->clinic_id,
            'city_name' => $get_city->ville
         ]);
         return response()->json([

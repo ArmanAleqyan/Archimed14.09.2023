@@ -275,6 +275,40 @@
                 }
             }
         },
+        "/api/get_basket_status_green_or_red": {
+            "get": {
+                "tags": [
+                    "Basket"
+                ],
+                "summary": "Get the count of baskets with a status of 1 (green or red) for the authenticated user",
+                "operationId": "a8c6578ec8d711eb73495938cc30aad4",
+                "responses": {
+                    "200": {
+                        "description": "Successful response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "boolean",
+                                            "example": true
+                                        },
+                                        "count": {
+                                            "type": "integer",
+                                            "example": 5
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Unauthenticated"
+                    }
+                }
+            }
+        },
         "/api/add_service_in_basket": {
             "post": {
                 "tags": [
@@ -1946,6 +1980,254 @@
                 }
             }
         },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "register",
+                "description": "Register new user ",
+                "operationId": "register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7(999)999-99-99"
+                                    },
+                                    "lastName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Aleqyan"
+                                    },
+                                    "firstName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Arman"
+                                    },
+                                    "middleName": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Alberti"
+                                    },
+                                    "birthDate": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "19970915"
+                                    },
+                                    "gender": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "M OR F"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "RepeatTheCall User phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/confirmNewAccount": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "confirmNewAccount",
+                "description": "Потвержедение нового пользвателя",
+                "operationId": "confirmNewAccount",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7(999)999-99-99"
+                                    },
+                                    "confirmationCode": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "12345"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "RepeatTheCall User phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/requestNewAccountConfirmationCode": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "requestNewAccountConfirmationCode",
+                "description": "Запрос нового кода подтверждения учетной записи",
+                "operationId": "requestNewAccountConfirmationCode",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "phone": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "+7(999)999-99-99"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "RepeatTheCall User phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/GetCity": {
+            "get": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "GetCity",
+                "description": " Return List City",
+                "operationId": "GetCity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "  Return List City",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/UserAddCity": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "UserAddCity",
+                "description": " Выберите город из api GetCity ",
+                "operationId": "UserAddCity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "city_id": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": " Выберите город из api GetCity",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/UserAddNewCity": {
+            "post": {
+                "tags": [
+                    "Auth"
+                ],
+                "summary": "UserAddNewCity",
+                "description": " User Add New City Name",
+                "operationId": "UserAddNewCity",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "properties": {
+                                    "city": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "Arman"
+                                    },
+                                    "user_email": {
+                                        "type": "string",
+                                        "format": "text",
+                                        "example": "user email"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "User Add New City Name",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/add_review": {
             "post": {
                 "tags": [
@@ -2513,6 +2795,62 @@
                 "responses": {
                     "200": {
                         "description": "DoctorsListc",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/get_my_notyfy": {
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "get_my_notyfy",
+                "description": "Получение уведомлений",
+                "operationId": "get_my_notyfy",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Получение уведомлений",
+                        "content": {
+                            "application/json": {
+                                "schema": {}
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/has_mynotification": {
+            "get": {
+                "tags": [
+                    "Notification"
+                ],
+                "summary": "has_mynotification",
+                "description": "Проверка наличия новых уведомлений",
+                "operationId": "has_mynotification",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {}
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Проверка наличия новых уведомлений",
                         "content": {
                             "application/json": {
                                 "schema": {}

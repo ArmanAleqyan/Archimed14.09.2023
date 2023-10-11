@@ -8,9 +8,13 @@ use App\Models\DoctorList;
 use App\Models\DoctorService;
 use Illuminate\Support\Facades\Http;
 use Validator;
-
+use App\Models\Basket;
 class DoctorsController extends Controller
 {
+
+
+ 
+
     /**
      * @OA\Post(
      * path="/api/doctors_list",
@@ -43,7 +47,7 @@ class DoctorsController extends Controller
             $get->Whererelation('DoctorsSubject', 'VILLE', $request->city);
         }
 
-        if (isset($request->orderby) && $request->orderby == true ){
+        if (isset($request->orderby) && $request->orderby == 'true' || isset($request->orderby) && $request->orderby == true){
             $get->orderbY('FIO', 'ASC');
         }
         $doctors = $get->with('DoctorsSubject','DoctorService')->simplepaginate(10);
@@ -75,14 +79,30 @@ class DoctorsController extends Controller
      *     ),
      * )
      */
+
     public function single_doctor(Request $request){
 
         $get = DoctorList::where('id', $request->doctor_id)->with('DoctorsSubject','DoctorService')->get();
 
 
+        if (auth()->guard('api')->user() != null ){
+
+            $get_doctor_service = DoctorService::where('doctor_id', $request->doctor_id)->get('id')->pluck('id')->toarray();
+            $get_auth_user_order = Basket::wherein('parent_id', $get_doctor_service)->where('user_id', auth()->guard('api')->user()->id)->where('parent_type' ,'App\Models\DoctorService')->where('order_review', false)->where('status', '>', 3)->first();
+        }
+
+
+        if (isset($get_auth_user_order) && $get_auth_user_order != null ){
+            $rev = true;
+        }else{
+            $rev = false;
+        }
+
+
         return response()->json([
            'status' => true,
-           'data' => $get
+           'data' => $get,
+            'get_auth_user_order' => $rev
         ],200);
     }
 
@@ -151,13 +171,18 @@ class DoctorsController extends Controller
                 "date_start" => $request->start_date,
                 "date_end" => $request->end_date,
                 "pl_exam_id" => $request->PL_EXAM_ID
+                //  Test
+//                "pl_subj_id" => 11,
+//                "date_start" => '07-05-2023',
+//                "date_end" => '07-05-2023',
+//                "pl_exam_id" =>253409
             ])->json();
 
 
 
         return response()->json([
            'status' => true,
-           'data' =>  $doctor_visit_time['result']
+           'data' =>  $doctor_visit_time['result']??[]
         ],200);
 
 

@@ -89,6 +89,7 @@ class AboutAppController extends Controller
      *     ),
      * )
      */
+
     public function get_TermsOfService(){
         $termsOfService = TermsOfService::first();
 

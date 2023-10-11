@@ -68,6 +68,7 @@ Route::post('Feedback', [LoginController::class,'Feedback']);
 
 
 Route::post('register', [RegisterController::class, 'register']);
+Route::post('validation_register', [RegisterController::class, 'validation_register']);
 Route::post('confirmNewAccount', [RegisterController::class, 'confirmNewAccount']);
 Route::post('requestNewAccountConfirmationCode', [RegisterController::class, 'requestNewAccountConfirmationCode']);
 Route::post('login', [LoginController::class, 'login']);
@@ -129,6 +130,7 @@ Route::group(['middleware' => ['auth:api']], function () {
 /////////////////////////////////////        Basket
     Route::post('add_service_in_basket',[BasketController::class,'add_service_in_basket']);
     Route::get('get_basket/{id?}', [BasketController::class, 'get_basket']);
+    Route::get('get_basket_status_green_or_red', [BasketController::class, 'get_basket_status_green_or_red']);
     Route::post('delete_my_all_basket', [BasketController::class, 'delete_my_all_basket']);
     Route::get('my_basket_record', [BasketController::class, 'my_basket_record']);
     Route::get('my_basket_record_limit3', [BasketController::class, 'my_basket_record_limit3']);
@@ -171,6 +173,9 @@ Route::group(['middleware' => ['auth:api']], function () {
 
     //My notifyController
     Route::get('get_my_notyfy',[NotifyController::class,'get_my_notyfy']);
+    Route::get('all_keys_count',[NotifyController::class,'all_keys_count']);
+    Route::get('has_mynotification',[NotifyController::class,'has_mynotification']);
+
 });
 
 //About aplication

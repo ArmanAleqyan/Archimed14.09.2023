@@ -11,6 +11,36 @@ class BasketController extends Controller
 {
 
     /**
+     * @OA\Get(
+     *     path="/api/get_basket_status_green_or_red",
+     *     summary="Get the count of baskets with a status of 1 (green or red) for the authenticated user",
+     *     tags={"Basket"},
+     *     @OA\Response(
+     *         response=200,
+     *         description="Successful response",
+     *         @OA\JsonContent(
+     *             @OA\Property(property="status", type="boolean", example=true),
+     *             @OA\Property(property="count", type="integer", example=5),
+     *         ),
+     *     ),
+     *     @OA\Response(
+     *         response=401,
+     *         description="Unauthenticated",
+     *     ),
+     * )
+     */
+
+    public function get_basket_status_green_or_red(){
+        $get = Basket::where('user_id', auth()->user()->id)->where('status', 1)->count();
+
+
+        return response()->json([
+           'status' =>  true,
+            'count' => $get
+        ],200);
+    }
+
+    /**
      * @OA\Post(
      * path="/api/add_service_in_basket",
      * summary="add_service_in_basket",
@@ -47,6 +77,7 @@ class BasketController extends Controller
         $rules=array(
             'parent_type' => 'required',
             'parent_id' => 'required',
+//            'day' => 'date',
         );
         $validator=Validator::make($request->all(),$rules);
         if($validator->fails())
@@ -56,9 +87,9 @@ class BasketController extends Controller
 
         if ($request->parent_type == 'doctor_service'){
             $parent_type = 'App\Models\DoctorService';
-            $parent_type = 'App\Models\MedicalTest';
         }
         if ($request->parent_type == 'medical_test'){
+            $parent_type = 'App\Models\MedicalTest';
         }
 
         if ($request->parent_type == 'medical_test_parameter'){
@@ -139,7 +170,6 @@ class BasketController extends Controller
                 $get = $basket->where('id', $id)->get();
             }
 
-           // return $get;
 
             $online_pay = 'no required';
 
@@ -185,10 +215,12 @@ class BasketController extends Controller
         $user_id = auth()->guard('api')->user()->id;
 
         $basket = Basket::where('user_id', $user_id)
-            ->orWhere(function ($query){
+            ->where(function ($query){
                 $query->where('parent_type','App\Models\DoctorService')
                     ->orWhere('parent_type','App\Models\HomeServise');
             })
+            ->with('parent')
+            ->wherein('status', [3,5])
             ->get();
             return response()->json([
                 'status' => true,
@@ -222,11 +254,14 @@ class BasketController extends Controller
         //return 123;
         $user_id = auth()->guard('api')->user()->id;
 
+
         $basket = Basket::where('user_id', $user_id)
-            ->orWhere(function ($query){
+            ->where(function ($query){
                 $query->where('parent_type','App\Models\DoctorService')
                     ->orWhere('parent_type','App\Models\HomeServise');
             })
+            ->wherein('status', [3,5])
+            ->with('parent')
             ->orderBy('id','desc')
             ->limit(3)
             ->get();

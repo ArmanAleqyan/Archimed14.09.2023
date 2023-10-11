@@ -47,7 +47,7 @@ use Laravel\Nova\Tool;
 use App\Models\Feedback as ModelRegister;
 
 use App\Nova\CategoryOfAnalysis;
-use App\Nova\ComplexOfAnalyzes;
+//use App\Nova\ComplexOfAnalyzes;
 
 
 class NovaServiceProvider extends NovaApplicationServiceProvider

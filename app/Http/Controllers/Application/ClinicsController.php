@@ -27,6 +27,9 @@ class ClinicsController extends Controller
         $client_token = env('token');
 
 
+
+
+
         $pdf = Http::withHeaders([
             'Content-Type' => 'application/json',
             'Authorization' => "Basic $client_token",
@@ -34,9 +37,6 @@ class ClinicsController extends Controller
             [
                     "patdirec_id" => 5611456
             ])->json();
-
-        dd($pdf);
-        dd($pdf['result'][0]['PDF'][0]["PDF"]);
 
 
         $obsledovanie = Http::withHeaders([
@@ -92,7 +92,7 @@ class ClinicsController extends Controller
                         'biotype' => $serv->biotype??null,
                         'conttype' => $serv->conttype??null,
                         'clinic_id' => $serv->FM_ORG_ID??null,
-                        'description_serv' => $serv->description_serv??null
+                        'description_serv' => $serv->description_serv??null,
                     ]
                 );
             }
@@ -104,7 +104,7 @@ class ClinicsController extends Controller
             [
             ])->json();
 
-//dd($home_service);
+
 
         foreach ($home_service['result'] as $home ){
 //                    dump( $home['FILIAL_ID']);
@@ -121,8 +121,6 @@ class ClinicsController extends Controller
                'REGION' => $home['REGION']??null,
             ]);
         }
-//        dd(1);
-
 
         $response = Http::withHeaders([
             'Content-Type' => 'application/json',
@@ -158,6 +156,7 @@ class ClinicsController extends Controller
             [
             ])->json();
 
+
         foreach ($doctor['result'] as $doc){
             if (isset($doc['DESCRIPT'])){
                 $desc = $doc['DESCRIPT'];
@@ -172,8 +171,12 @@ class ClinicsController extends Controller
                 'om_doctor' =>$doc['om_doctor'],
                 'FIO' =>$doc['FIO'],
                 'DESCRIPT' =>$desc,
-                'photo' => $doc['Photo_b64']??null
+                'photo' => $doc['Photo_b64']??null,
+                'experience' => $doc['Experience']??null
             ]);
+
+
+
             foreach ($doc['PL_SUBJ'] as $subject){
               $create_subject =  DoctorSubject::Updateorcreate(['doctor_id'=> $create_doctor->id],[
                   'doctor_id'=> $create_doctor->id,

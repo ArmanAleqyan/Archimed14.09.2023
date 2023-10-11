@@ -158,7 +158,8 @@ class LoginController extends Controller
             Auth::login($getUser);
             $token = $getUser->createToken('Laravel Password Grant Client')->accessToken;
                User::where('id', auth()->user()->id)->update([
-                   'phone_code' => null
+                   'phone_code' => null,
+           
                ]);
             
 

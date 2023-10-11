@@ -53,6 +53,7 @@ class NotificationController extends Controller
             'service_id' => $request->service_id,
             'status_from_order' => $request->status_from_order
         ]);
+
         return response()->json([
            'status' => true,
            'message' => 'Notification Created'
